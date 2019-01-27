@@ -8,7 +8,7 @@
 
 <div id="app">
     <p>{{ counter }}</p>
-    <button v-on:click="increase">Increase</button>
+    <button v-on:click="increaseBy(2, $event)">Increase</button>
 
     <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }}</p>
 </div>
@@ -24,8 +24,9 @@
             y: 0
         },
         methods: {
-            increase: function () {
-                this.counter++;
+            increaseBy: function (amountToIncrease, event) {
+                this.counter =+ amountToIncrease;
+                console.log(event);
             },
             setMouseCoordinates(event) {
                 this.x = event.clientX;
