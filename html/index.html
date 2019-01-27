@@ -1,0 +1,29 @@
+<html lang="en">
+<script src="../js/vue.js"></script>
+<header>
+
+</header>
+<body>
+
+
+<div id="app">
+    <p>{{ sayHello() }}</p>  <!--I'm calling the method -->
+    <p>{{ title }}</p> <!--I'm getting the value of the data -->
+</div>
+</body>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            title: "This is the title"
+        },
+        methods: {
+            sayHello: function () {
+                return "hello darkness my old friend!"
+            }
+        }
+    });
+</script>
+</html>
