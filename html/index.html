@@ -7,8 +7,9 @@
 
 
 <div id="app">
+    <p v-once>{{ title }}</p> <!--I'm getting the value of the data. -->
     <p>{{ sayHello() }} - <a v-bind:href="googleLink"> Google </a></p>  <!--I'm calling the method -->
-    <p>{{ title }}</p> <!--I'm getting the value of the data -->
+    <p v-html=finishedLink></p>
 </div>
 </body>
 
@@ -18,10 +19,12 @@
         el: "#app",
         data: {
             title: "hello darkness my old friend!",
-            googleLink: "http://google.com"
+            googleLink: "http://google.com",
+            finishedLink: '<a href="https://google.com">Google</a>'
         },
         methods: {
             sayHello: function () {
+                this.title = "Hello";
                 return this.title;
             }
         }
