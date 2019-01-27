@@ -9,6 +9,8 @@
 <div id="app">
     <p>{{ counter }}</p>
     <button v-on:click="increase">Increase</button>
+
+    <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }}</p>
 </div>
 </body>
 
@@ -17,11 +19,17 @@
     new Vue({
         el: "#app",
         data: {
-            counter: 0
+            counter: 0,
+            x: 0,
+            y: 0
         },
         methods: {
             increase: function () {
                 this.counter++;
+            },
+            setMouseCoordinates(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
             }
         }
     });
