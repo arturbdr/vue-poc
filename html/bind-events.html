@@ -1,0 +1,29 @@
+<html lang="en">
+<script src="../js/vue.js"></script>
+<header>
+
+</header>
+<body>
+
+
+<div id="app">
+    <p>{{ counter }}</p>
+    <button v-on:click="increase">Increase</button>
+</div>
+</body>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            counter: 0
+        },
+        methods: {
+            increase: function () {
+                this.counter++;
+            }
+        }
+    });
+</script>
+</html>
