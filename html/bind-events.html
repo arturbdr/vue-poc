@@ -10,7 +10,10 @@
     <p>{{ counter }}</p>
     <button v-on:click="increaseBy(2, $event)">Increase</button>
 
-    <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }} - <span v-on:mousemove.stop>No mouse function here</span></p>
+    <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }} - <span v-on:mousemove.stop>No mouse function here</span>
+    </p>
+
+    <input type="text" v-on:keyup.enter.space="displayKey">,
 </div>
 </body>
 
@@ -25,12 +28,15 @@
         },
         methods: {
             increaseBy: function (amountToIncrease, event) {
-                this.counter =+ amountToIncrease;
+                this.counter = +amountToIncrease;
                 console.log(event);
             },
-            setMouseCoordinates(event) {
+            setMouseCoordinates: function (event) {
                 this.x = event.clientX;
                 this.y = event.clientY;
+            },
+            displayKey: () => {
+                console.log(event.target.value);
             }
         }
     });
