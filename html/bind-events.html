@@ -10,7 +10,7 @@
     <p>{{ counter }}</p>
     <button v-on:click="increaseBy(2, $event)">Increase</button>
 
-    <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }}</p>
+    <p v-on:mousemove="setMouseCoordinates">Mouse coordinates {{ x }} / {{ y }} - <span v-on:mousemove.stop>No mouse function here</span></p>
 </div>
 </body>
 
