@@ -1,0 +1,54 @@
+<html lang="en">
+<script src="../js/vue.js"></script>
+
+<body>
+<div id="exercise">
+    <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
+    <div>
+        <button @click="hideShow = !hideShow">Toggle</button>
+        <p v-if="hideShow">You either see me ...</p>
+        <p v-if="!hideShow">...or me</p>
+        <p v-show="hideShow">You either see me ...</p>
+        <p v-show="!hideShow">...or me</p>
+    </div>
+    <!-- 2) Output an <ul> of array elements of your choice. Also print the index of each element. -->
+    <ul v-for="(value, key) in fruits">
+        <li> {{ key }} : {{ value }}</li>
+    </ul>
+    <!-- 3) Print all key-value pairs of the following object: {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Also print the index of each item. -->
+    <ul v-for="(value, key, i) in writers">
+        <li> {{ i }} - {{ key }}: {{ value }}</li>
+    </ul>
+    <!-- 4) Print the following object (only the values) and also create a nested loop for the array: {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: use v-for and v-if to achieve this) -->
+
+    <ul v-for="(value, key, i) in customObj">
+        <template v-if="Array.isArray(value)">
+            <li v-for="element in value"> {{ element }}</li>
+        </template>
+        <template v-else>
+            <li>{{value}}</li>
+        </template>
+
+    </ul>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#exercise",
+        data: {
+            hideShow: true,
+            fruits: ['apple', 'banana', 'strawberry', 'orange'],
+            customObj: {
+                name: 'TESTOBJECT',
+                id: 10,
+                data: [1.67, 1.33, 0.98, 2.21]
+            },
+            writers: {
+                title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'
+            }
+        }
+    });
+
+</script>
+</html>
