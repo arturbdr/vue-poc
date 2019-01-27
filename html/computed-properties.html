@@ -1,0 +1,55 @@
+<html lang="en">
+
+<header>
+    <script src="../js/vue.js"></script>
+</header>
+<body>
+
+
+<div id="app">
+    <p>{{ counter }}</p>
+    <button @click="increaseBy(2, $event)">Increase</button>
+    <p>Computed {{isGreatherThanComputed}}</p>
+    <p>Method {{isGreatherThan()}}</p>
+
+</div>
+</body>
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            counter: 0
+        },
+        computed: {
+            // In this block the vue will cache the result and will not execute all the times
+            // This is different if compared with a method that executes all the times
+            isGreatherThanComputed: function () {
+                console.log("computed");
+                return this.counter > 5 ? 'Greather' : 'Lower';
+            }
+        },
+        watch: {
+            counter: function (value) {
+                let that = this;
+                setTimeout(function() {
+                    // reset the property every time is changed
+                    console.log('reseting counter value');
+                    that.counter = 0;
+                }, 2000)
+            }
+        },
+        methods: {
+            increaseBy: function (amountToIncrease, event) {
+                this.counter += amountToIncrease;
+                console.log(event);
+            },
+            isGreatherThan: function () {
+                console.log("Method");
+                return this.counter > 5 ? 'Greather' : 'Lower';
+            }
+        }
+    });
+</script>
+</html>
