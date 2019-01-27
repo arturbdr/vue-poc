@@ -7,7 +7,7 @@
 
 
 <div id="app">
-    <p>{{ sayHello() }}</p>  <!--I'm calling the method -->
+    <p>{{ sayHello() }} - <a v-bind:href="googleLink"> Google </a></p>  <!--I'm calling the method -->
     <p>{{ title }}</p> <!--I'm getting the value of the data -->
 </div>
 </body>
@@ -17,11 +17,12 @@
     new Vue({
         el: "#app",
         data: {
-            title: "This is the title"
+            title: "hello darkness my old friend!",
+            googleLink: "http://google.com"
         },
         methods: {
             sayHello: function () {
-                return "hello darkness my old friend!"
+                return this.title;
             }
         }
     });
