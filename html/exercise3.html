@@ -34,9 +34,8 @@
             }
         },
         watch: {
-            result: function (value) {
+            result: function () {
                 let that = this;
-                console.log('reseting...');
                 setTimeout(function () {
                     that.value = 0;
                 }, 5000)
