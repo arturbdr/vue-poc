@@ -1,13 +1,18 @@
 let app = (function () {
     'use strict';
-    const addGoalBtn = document.getElementById("btnAddGoal");
+    const btnAddGoal = document.getElementById("btnAddGoal");
+    const inptGoalTxt = document.getElementById("goal");
+    const ulGoals = document.getElementById("goals");
 
     const onClickBtnAddGoal = () => {
-        console.log("clicked");
+        const userInputtedText = inptGoalTxt.value;
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(userInputtedText));
+        ulGoals.appendChild(li);
     };
 
     const bindElements = () => {
-        addGoalBtn.onclick = onClickBtnAddGoal;
+        btnAddGoal.onclick = onClickBtnAddGoal;
     };
 
     return {
